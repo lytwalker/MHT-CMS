@@ -2,7 +2,10 @@
 <html>
 <head>
   <title>Mandy's Hair Treasures - Cms</title>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <%= stylesheet_link_tag    'bootstrap', media: 'all', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'bootstrap', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -14,7 +17,7 @@
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div id="brand-nav" class="navbar-header col-lg-12 col-md-12 col-sm-12">
                     <a id="main-brand" class="navbar-brand" href="index.html">
-                        Mandy's Hair Treasures<br/>
+                        Mandy's Hair Treasures - CMS<br/>
                         <small>Quality Hair Products</small>
                     </a>
                     <form id="search-nav" class="navbar-form navbar-right" role="search">
@@ -22,7 +25,15 @@
                             <input type="text" class="form-control" placeholder="Search">
                             <button type="submit" class="btn btn-default">Submit</button>
                         </div>
-                        <div><a href=""><strong>Free International Shipping</strong></a></div>
+
+                        <% if logged_in? %>
+                            <div>
+                                <strong>
+                                    Logged in as <%= current_user.username %> |
+                                    <%= link_to "Logout", logout_path, method: :delete %>
+                                </strong>
+                            </div>
+                        <% end %>
                     </form>
                     <button id="menu-nav-button" type="button" class="navbar-toggle collapsed col-xs-12" data-toggle="collapse" data-target="#menu-navbar-collapse" aria-expanded="false">
                         <span class="sr-only">Menu</span>
@@ -50,18 +61,14 @@
         </nav>
     </header>
 
-    <% if logged_in? %>
-        <div style='float: right;'>
-            Logged in as <%= current_user.username %> |
-            <%= link_to "Logout", logout_path, method: :delete %>
-        </div>
-    <% end %>
+    <div class="container-fluid">
 
-    <% flash.each do |key, value| %>
-        <p id='<%= key %>'><%= value %></p>
-    <% end %>
-
-<%= yield %>
+        <% flash.each do |key, value| %>
+            <h4 id='<%= key %>'><%= value %></h4>
+        <% end %>
+        <br/>
+        <%= yield %>
+    </div>
 
 </body>
 </html>
