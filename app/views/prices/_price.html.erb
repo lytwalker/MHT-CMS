@@ -1,0 +1,5 @@
+<div class="price">
+	<div class="left col-sm-4"><%= price.length  %></div>
+	<div class="cost col-sm-4"><%= number_to_currency(price.cost, unit: "£") %></div>
+	<div class="mod col-sm-4"><%= link_to 'Delete Note', [@product, price], method: :delete %></div>
+</div>

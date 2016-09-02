@@ -22,19 +22,35 @@
 </p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
-
-<p>
   <strong>Sku:</strong>
   <%= @product.sku %>
 </p>
+
+<% if @product.prices.count > 0 %>
+  <h3>Prices</h3>
+  <div id="prices">
+    <div class="col-sm-4">Length</div>
+    <div class="col-sm-4">Cost</div>
+    <div class="col-sm-4">&nbsp;</div>
+    <%= render @product.prices %>
+  </div>
+<% end %>
+
+<div>
+  <%= form_for([@product, @product.prices.new]) do |f| %>
+    <div class="field">
+      <%= f.label :length %><br>
+      <%= f.text_field :length %>
+    </div>
+    <div class="field">
+      <%= f.label :cost %><br>
+      <%= f.number_field :cost %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Add new price" %>
+    </div>
+  <% end %>
+</div>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

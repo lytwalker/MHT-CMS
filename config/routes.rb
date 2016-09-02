@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   resources :types
 
   resources :sessions, only: [:new, :create, :destroy]
+  resources :products do
+    resources :prices, only: [:create, :destroy]
+  end
+
   get "/login" => "sessions#new", as: "login"
   delete "/logout" => "sessions#destroy", as: "logout"
   # The priority is based upon order of creation: first created -> highest priority.

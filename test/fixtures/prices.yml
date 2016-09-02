@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  length: MyString
+  cost: 9.99
+  product_id: 
+
+two:
+  length: MyString
+  cost: 9.99
+  product_id: 
