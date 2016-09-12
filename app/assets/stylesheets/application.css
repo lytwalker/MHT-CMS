@@ -247,7 +247,7 @@ table tr td {
 }
 
 .field label {
-    float: left;
+    /*float: left;*/
     padding: 10px 20px;
     text-transform: uppercase;
     color: #bbb;

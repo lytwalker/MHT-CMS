@@ -48,3 +48,16 @@ Category.all.each do |category|
 	}
 	end
 end
+
+# Prices
+#Price.destroy_all
+#Product.all.each do |product|
+#	3.times { |index| 
+#		Price.create! [ 
+#			{ 
+#				length: " #{[*9..16].sample}\"", 
+#				cost: [*0..100].sample,
+#				product_id: product.id },
+#		]
+#	}
+#end
