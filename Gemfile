@@ -53,6 +53,8 @@ gem 'will_paginate', '~> 3.0.6'
 
 gem "ckeditor"
 
+gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+
 group :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'capybara'

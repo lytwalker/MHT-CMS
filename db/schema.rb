@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160902100939) do
+ActiveRecord::Schema.define(version: 20160913131705) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "thumb"
@@ -43,8 +43,12 @@ ActiveRecord::Schema.define(version: 20160902100939) do
     t.decimal  "price"
     t.string   "sku"
     t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "products", ["category_id"], name: "index_products_on_category_id"
